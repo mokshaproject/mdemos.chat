@@ -41,12 +41,12 @@ class LiveChatWidget(twc.Widget):
     name = 'Chat'
     params = ['bootstrap']
     bootstrap = twc.JSLink(link='/apps/chat/bootstrap')
-    template = "mako:moksha.apps.chat.templates.simple"
+    template = "mako:mdemos.chat.templates.simple"
     visible = False
 
 
 class LiveChatFrameWidget(twc.Widget):
-    template = 'mako:moksha.apps.chat.templates.chat'
+    template = 'mako:mdemos.chat.templates.chat'
     resources = [
         orbited_js,
         willowchat_js,

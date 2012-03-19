@@ -25,7 +25,7 @@ from tg import expose, tmpl_context, config
 from pylons import request
 
 from moksha.lib.base import BaseController
-from moksha.apps.chat import LiveChatFrameWidget
+from mdemos.chat import LiveChatFrameWidget
 
 chat_frame_widget = LiveChatFrameWidget(id='chat_frame')
 
@@ -71,7 +71,7 @@ class ChatController(BaseController):
         tmpl_context.widget = chat_frame_widget
         return dict(options={})
 
-    @expose('mako:moksha.apps.chat.templates.bootstrap',
+    @expose('mako:mdemos.chat.templates.bootstrap',
             content_type='text/javascript')
     def bootstrap(self, *args, **kw):
         return dict(host=request.headers['host'])
