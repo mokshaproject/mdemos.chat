@@ -44,10 +44,13 @@ chat_dir = twc.DirLink(
 class LiveChatWidget(twc.Widget):
     resources = [chat_dir]
     name = 'Chat'
-    params = ['bootstrap']
-    bootstrap = twc.JSLink(link='/apps/chat/bootstrap')
+    bootstrap = twc.Variable()
     template = "mako:mdemos.chat.templates.simple"
     visible = False
+
+    def prepare(self):
+        super(LiveChatWidget, self).prepare()
+        self.bootstrap = twc.JSLink(link='/apps/chat/bootstrap')
 
 
 class LiveChatFrameWidget(twc.Widget):
