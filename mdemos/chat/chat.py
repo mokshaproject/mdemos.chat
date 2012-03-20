@@ -36,8 +36,13 @@ willowchat_css = twc.CSSLink(
     filename='static/style.css',
     modname=__name__)
 
+chat_dir = twc.DirLink(
+    filename='static',
+    modname=__name__)
+
 
 class LiveChatWidget(twc.Widget):
+    resources = [chat_dir]
     name = 'Chat'
     params = ['bootstrap']
     bootstrap = twc.JSLink(link='/apps/chat/bootstrap')
@@ -54,4 +59,5 @@ class LiveChatFrameWidget(twc.Widget):
         gui_js,
         tw2.jquery.jquery_js,
         willowchat_css,
+        chat_dir,
     ]
