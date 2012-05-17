@@ -18,19 +18,17 @@
 import tw2.core as twc
 import tw2.jquery
 
-from moksha.api.widgets.orbited import orbited_js
 
 irc2_js = twc.JSLink(
     filename='static/irc2.js',
-    javascript=[orbited_js],
     modname=__name__)
 willowchat_js = twc.JSLink(
     filename='static/willowchat.js',
-    javascript=[tw2.jquery.jquery_js, irc2_js],
+    resources=[tw2.jquery.jquery_js, irc2_js],
     modname=__name__)
 gui_js = twc.JSLink(
     filename='static/gui.js',
-    javascript=[willowchat_js],
+    resources=[willowchat_js],
     modname=__name__)
 willowchat_css = twc.CSSLink(
     filename='static/style.css',
@@ -56,7 +54,6 @@ class LiveChatWidget(twc.Widget):
 class LiveChatFrameWidget(twc.Widget):
     template = 'mako:mdemos.chat.templates.chat'
     resources = [
-        orbited_js,
         willowchat_js,
         irc2_js,
         gui_js,
