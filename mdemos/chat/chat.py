@@ -18,9 +18,19 @@
 import tw2.core as twc
 import tw2.jquery
 
+from tg import config
+
+orbited_url = '%s://%s:%s' % (
+    config.get('orbited_scheme'),
+    config.get('orbited_host'),
+    config.get('orbited_port'),
+)
+orbited_js = twc.JSLink(link=orbited_url + '/static/Orbited.js',
+                        resources=[tw2.jquery.jquery_js])
 
 irc2_js = twc.JSLink(
     filename='static/irc2.js',
+    resources=[orbited_js],
     modname=__name__)
 willowchat_js = twc.JSLink(
     filename='static/willowchat.js',

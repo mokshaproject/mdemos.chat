@@ -24,12 +24,11 @@ urlparse.uses_netloc.append('irc')
 from tg import expose, tmpl_context, config
 from pylons import request
 
-from moksha.lib.base import BaseController
 from mdemos.chat import LiveChatFrameWidget
 
 chat_frame_widget = LiveChatFrameWidget(id='chat_frame')
 
-class ChatController(BaseController):
+class ChatController(object):
 
     def __init__(self, *args, **kw):
         super(ChatController, self).__init__(*args, **kw)
