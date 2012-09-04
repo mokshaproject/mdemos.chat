@@ -65,7 +65,7 @@ class ChatController(object):
 
         log.debug('Chat config = %r' % self.config)
 
-    @expose('mako:moksha.templates.widget')
+    @expose('mako:moksha.wsgi.templates.widget')
     def index(self, *args, **kw):
         tmpl_context.widget = chat_frame_widget
         return dict(options={})

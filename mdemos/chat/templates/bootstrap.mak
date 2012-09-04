@@ -1,4 +1,4 @@
-<%namespace name="tw" module="moksha.utils.mako"/>
+<%namespace name="tw" module="tw2.core.mako_util"/>
 (function() {
 var gatherOptions = function(roomOptions, container) {
     var opts = {}
