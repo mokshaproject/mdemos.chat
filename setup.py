@@ -8,7 +8,7 @@ except ImportError:
 
 setup(
     name="mdemos.chat",
-    version="0.1.1",
+    version="0.1.2",
     url="http://moksha.fedorahosted.org",
     description="Moksha Chat App",
     long_description="",
