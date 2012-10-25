@@ -58,7 +58,10 @@ class LiveChatWidget(twc.Widget):
 
     def prepare(self):
         super(LiveChatWidget, self).prepare()
-        self.bootstrap = twc.JSLink(link='/apps/chat/bootstrap')
+        self.bootstrap = twc.JSLink(
+            link='/apps/chat/bootstrap',
+            resources=[tw2.jquery.jquery_js, orbited_js],
+        )
 
 
 class LiveChatFrameWidget(twc.Widget):
