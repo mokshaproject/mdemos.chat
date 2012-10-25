@@ -1,4 +1,4 @@
-<%namespace name="tw" module="moksha.utils.mako"/>
+<%namespace name="tw" module="tw2.core.mako_util"/>
 (function() {
 var gatherOptions = function(roomOptions, container) {
     var opts = {}
@@ -60,7 +60,7 @@ var loaded = function() {
         room = result[1]
         var opts = gatherOptions(room, container);
         ifr = document.createElement('iframe')
-        var staticurl = baseurl + '/resources/mdemos.chat.chat/static'
+        var staticurl = baseurl + '/tw2/resources/mdemos.chat.chat/static'
         ifr.src = '/apps/chat/index?json=1&opts=' +  escape(JSON.stringify(opts))
         ifr.style.border = "0px";
         ifr.style.width = "100%";

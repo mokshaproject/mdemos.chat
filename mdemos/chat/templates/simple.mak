@@ -1,2 +1,2 @@
-<%namespace name="tw" module="moksha.utils.mako"/>
-<div id="willowchat" reposition="true">${tw._('bootstrap').display()}</div>
+<%namespace name="tw" module="tw2.core.mako_util"/>
+<div id="willowchat" reposition="true">${tw._('bootstrap').display()|n}</div>

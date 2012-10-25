@@ -1,1 +1,2 @@
-recursive-include moksha *.mak *.html *.js *.png *.gif *.css *.jpg *.jpeg
+recursive-include mdemos/chat/static *
+recursive-include mdemos/chat/templates *

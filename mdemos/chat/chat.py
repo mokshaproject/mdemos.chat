@@ -18,19 +18,27 @@
 import tw2.core as twc
 import tw2.jquery
 
-from moksha.api.widgets.orbited import orbited_js
+from tg import config
+
+orbited_url = '%s://%s:%s' % (
+    config.get('orbited_scheme'),
+    config.get('orbited_host'),
+    config.get('orbited_port'),
+)
+orbited_js = twc.JSLink(link=orbited_url + '/static/Orbited.js',
+                        resources=[tw2.jquery.jquery_js])
 
 irc2_js = twc.JSLink(
     filename='static/irc2.js',
-    javascript=[orbited_js],
+    resources=[orbited_js],
     modname=__name__)
 willowchat_js = twc.JSLink(
     filename='static/willowchat.js',
-    javascript=[tw2.jquery.jquery_js, irc2_js],
+    resources=[tw2.jquery.jquery_js, irc2_js],
     modname=__name__)
 gui_js = twc.JSLink(
     filename='static/gui.js',
-    javascript=[willowchat_js],
+    resources=[willowchat_js],
     modname=__name__)
 willowchat_css = twc.CSSLink(
     filename='static/style.css',
@@ -50,13 +58,15 @@ class LiveChatWidget(twc.Widget):
 
     def prepare(self):
         super(LiveChatWidget, self).prepare()
-        self.bootstrap = twc.JSLink(link='/apps/chat/bootstrap')
+        self.bootstrap = twc.JSLink(
+            link='/apps/chat/bootstrap',
+            resources=[tw2.jquery.jquery_js, orbited_js],
+        )
 
 
 class LiveChatFrameWidget(twc.Widget):
     template = 'mako:mdemos.chat.templates.chat'
     resources = [
-        orbited_js,
         willowchat_js,
         irc2_js,
         gui_js,
